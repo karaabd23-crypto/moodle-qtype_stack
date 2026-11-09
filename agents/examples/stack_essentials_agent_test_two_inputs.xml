@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="stack">
+    <name><text>Sum and product of two hidden numbers</text></name>
+    <questiontext>
+      <text><![CDATA[<p>Two whole numbers are chosen for this variant.</p>
+<div>Their sum: [[input:ans1]] [[validation:ans1]]</div>
+<div>Their product: [[input:ans2]] [[validation:ans2]]</div>]]></text>
+    </questiontext>
+    <generalfeedback>
+      <text><![CDATA[<p>The sum is {@ta1@} and the product is {@ta2@}.</p>]]></text>
+    </generalfeedback>
+    <stackversion><text>2026080600</text></stackversion>
+    <questionvariables>
+      <text>a: 2 + rand(4);
+b: 3 + rand(5);
+ta1: a + b;
+ta2: a * b;</text>
+    </questionvariables>
+    <specificfeedback><text>[[feedback:prt1]] [[feedback:prt2]]</text></specificfeedback>
+    <prtcorrect><text><![CDATA[[[commonstring key="symbolicprtcorrectfeedback"/]] [[commonstring key="defaultprtcorrectfeedback"/]]]]></text></prtcorrect>
+    <prtpartiallycorrect><text><![CDATA[[[commonstring key="symbolicprtpartiallycorrectfeedback"/]] [[commonstring key="defaultprtpartiallycorrectfeedback"/]]]]></text></prtpartiallycorrect>
+    <prtincorrect><text><![CDATA[[[commonstring key="symbolicprtincorrectfeedback"/]] [[commonstring key="defaultprtincorrectfeedback"/]]]]></text></prtincorrect>
+    <questionnote><text>\(a = {@a@}\), \(b = {@b@}\), sum \({@ta1@}\), product \({@ta2@}\)</text></questionnote>
+    <input>
+      <name>ans1</name>
+      <type>numerical</type>
+      <tans>ta1</tans>
+    </input>
+    <input>
+      <name>ans2</name>
+      <type>numerical</type>
+      <tans>ta2</tans>
+    </input>
+    <prt>
+      <name>prt1</name>
+      <node>
+        <name>0</name>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>ta1</tans>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <falseanswernote>prt1-1-F</falseanswernote>
+      </node>
+    </prt>
+    <prt>
+      <name>prt2</name>
+      <node>
+        <name>0</name>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>ta2</tans>
+        <trueanswernote>prt2-1-T</trueanswernote>
+        <falseanswernote>prt2-1-F</falseanswernote>
+      </node>
+    </prt>
+    <deployedseed>1</deployedseed>
+    <deployedseed>2</deployedseed>
+    <qtest>
+      <testcase>1</testcase>
+      <testinput><name>ans1</name><value>ta1</value></testinput>
+      <testinput><name>ans2</name><value>ta2</value></testinput>
+      <expected><name>prt1</name><expectedscore>1</expectedscore><expectedpenalty>0</expectedpenalty><expectedanswernote>prt1-1-T</expectedanswernote></expected>
+      <expected><name>prt2</name><expectedscore>1</expectedscore><expectedpenalty>0</expectedpenalty><expectedanswernote>prt2-1-T</expectedanswernote></expected>
+    </qtest>
+    <qtest>
+      <testcase>2</testcase>
+      <testinput><name>ans1</name><value>ta1</value></testinput>
+      <testinput><name>ans2</name><value>ta2-1</value></testinput>
+      <expected><name>prt1</name><expectedscore>1</expectedscore><expectedpenalty>0</expectedpenalty><expectedanswernote>prt1-1-T</expectedanswernote></expected>
+      <expected><name>prt2</name><expectedscore>0</expectedscore><expectedpenalty>0.1</expectedpenalty><expectedanswernote>prt2-1-F</expectedanswernote></expected>
+    </qtest>
+    <qtest>
+      <testcase>3</testcase>
+      <testinput><name>ans1</name><value>ta1+1</value></testinput>
+      <testinput><name>ans2</name><value>x</value></testinput>
+      <expected><name>prt1</name><expectedscore>0</expectedscore><expectedpenalty>0.1</expectedpenalty><expectedanswernote>prt1-1-F</expectedanswernote></expected>
+      <expected><name>prt2</name><expectedscore>NULL</expectedscore><expectedpenalty>0</expectedpenalty><expectedanswernote/></expected>
+    </qtest>
+  </question>
+</quiz>
